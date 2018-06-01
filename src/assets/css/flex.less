@@ -1,0 +1,138 @@
+/*定义为flexbox的"父元素"*/
+.flex{
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+/*主轴*/
+.flex-main-start{
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  justify-content: flex-start;
+}
+.flex-main-center{
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+.flex-main-end{
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  justify-content: flex-end;
+}
+/*交叉轴*/
+.flex-cross-start{
+  -webkit-box-align: start;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+.flex-cross-center{
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.flex-cross-end{
+  -webkit-box-align: end;
+  -webkit-align-items: flex-end;
+  align-items: flex-end;
+}
+/*垂直居中*/
+.flex-center{
+  /*子元素沿主轴对齐方式居中*/
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  /*子元素沿交叉轴对齐方式居中*/
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+
+}
+/*交叉抽居中 垂直居中*/
+.flex-ver-center{
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+/*指定主轴的伸缩流方向是纵向的*/
+.flex-ver{
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+/*指定主轴的伸缩流方向是横向的*/
+.flex-row{
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+/*定义如果一条轴线排不下，如何换行*/
+.flex-wrap{
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+/*给"子元素"赋予自由伸缩的能力*/
+.flex-item{
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+  flex: 1;
+  /*在旧版的规范中，使用比例伸缩布局时，子元素的内容长短不同会导致无法“等分”，这个时候，我们需要给子元素设置一个“width:0%”来解决问题*/
+  /*不要给flexbox里的子元素设置“margin:auto”的属性，在部分安卓机下，它会导致该元素的宽度撑开到100%占位*/
+  width: 0%;
+}
+/*单个项目有与其他项目不一样的对齐方式*/
+.flex-item-start{
+  -webkit-align-self: flex-start;
+  align-self: flex-start;
+}
+.flex-item-center{
+  -webkit-align-self: center;
+  align-self: center;
+}
+.flex-item-end{
+  -webkit-align-self: flex-end;
+  align-self: flex-end;
+}
+.flex-jcsb{
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.flex-col-100{
+  flex: 0 0 100%;
+}
+.flex-col-90{
+  flex: 0 0 90%;
+}
+.flex-col-80{
+  flex: 0 0 80%;
+}
+.flex-col-70{
+  flex: 0 0 70%;
+}
+.flex-col-60{
+  flex: 0 0 60%;
+}
+.flex-col-50{
+  flex: 0 0 50%;
+}
+.flex-col-40{
+  flex: 0 0 40%;
+}
+.flex-col-33{
+  flex: 0 0 33.3333%;
+}
+.flex-col-30{
+  flex: 0 0 30%;
+}
+.flex-col-25{
+  flex: 0 0 25%;
+}
+.flex-col-20{
+  flex: 0 0 20%;
+}
+.flex-col-10{
+  flex: 0 0 10%;
+}
