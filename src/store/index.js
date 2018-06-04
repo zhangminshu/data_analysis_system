@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-
+import api from '@/api'
 import index from './modules/index.js'
 Vue.use(Vuex)
 
 const state = {
-  isIndex: false
+    isLoading: false,
 }
 export default new Vuex.Store({
   modules: {
@@ -13,8 +13,8 @@ export default new Vuex.Store({
   },
   state,
   mutations: {
-    updateIsIndex(state,payload){
-      state.isIndex = payload
-    }
+      updateLoadingStatus (state, payload) {
+          state.isLoading = payload.isLoading
+      },
   },
 })

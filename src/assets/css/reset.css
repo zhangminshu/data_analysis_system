@@ -64,7 +64,7 @@ a:hover {
 *
 */
 a:focus {
-  /*outline: 1px dotted;*/
+  outline: 1px dotted;
 }
 
 /* ==========================================================================
@@ -80,11 +80,13 @@ html {
   /* 1 */
   font-size: 62.5%;
   /* 10/16=62.5% */
+  height: 100%;
 }
 
 body {
+  height: 100%;
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.8;
 }
 
 /**
@@ -107,7 +109,7 @@ button,
 input,
 select,
 textarea {
-  font-family: 'helvetica neue', arial, 'hiragino sans gb', stheiti, 'wenquanyi micro hei', \5FAE\8F6F\96C5\9ED1, \5B8B\4F53, sans-serif;
+  font-family: 'helvetica neue', 'arial', 'hiragino sans gb', 'stheiti', 'wenquanyi micro hei', '\5FAE\8F6F\96C5\9ED1', '\5B8B\4F53', 'sans-serif';
   -ms-text-autospace: ideograph-alpha ideograph-numeric ideograph-parenthesis;
   /* 5 */
   text-spacing: ideograph-alpha ideograph-numeric ideograph-parenthesis;
@@ -392,9 +394,7 @@ input,
 button {
   *overflow: visible;
 }
-input{
-  border: none;
-}
+
 /**
 * 统一各浏览器「text-transform」不会继承的问题
 * http://jsbin.com/iqecic/1/edit
@@ -512,7 +512,7 @@ option:disabled:checked {
 */
 @media screen and (-webkit-min-device-pixel-ratio: 0) {
   input {
-    line-height: normal !important;
+  //line-height: normal !important;
   }
 }
 
@@ -600,8 +600,16 @@ audio:not([controls]) {
 * 为可拖动元素添加拖动的光标
 * http://jsbin.com/apavod/1/edit
 */
-[draggable] {
-  cursor: move;
+a:active, a:focus{
+  outline: none;
 }
-
-/*# sourceMappingURL=neat.css.map */
+a{
+  cursor: pointer;
+}
+em{
+  font-style: normal;
+}
+button[disabled]{
+  opacity: .6;
+  cursor: not-allowed;
+}
