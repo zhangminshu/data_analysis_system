@@ -1,20 +1,21 @@
 <template>
     <div class="side-menu" >
-        <div class="ms-logo">投放数据分析系统</div>
-        <i-col class="side-scroll">
-
-
-            <Menu active-key="1" class="ivu-menu-default" width="auto">
-                <Submenu :key="index" :name="index" v-for="(item,index) in sideMenuList">
+        <div class="ms-logo"><i class="icon-project"></i>投放数据分析系统</div>
+        <i-col class="side-scroll" >
+            <Menu active-name="12" :open-names="['1']"    class="ivu-menu-default" width="auto">
+                <Submenu :name="item.id" :key="index" v-for="(item,index) in sideMenuList">
                     <template slot="title">
-                        <Icon :type="index" class="sideIcon"></Icon>
+                        <Icon  class="sideIcon" :class="'ivu-icon-'+index"></Icon>
                         {{item.name}}
                     </template>
-                    <Menu-item v-for="(subItem,sunIndex) in item.list" :key="index-sunIndex" :name="index+'_'+sunIndex">{{subItem.name}}</Menu-item>
+                        <router-link v-for="(subItem,subIndex) in item.list" :key="subIndex" :to="{name: subItem.listName}">
+                            <Menu-item   :name="subItem.id" :key="subItem.id">{{subItem.name}}</Menu-item>
+                        </router-link>
                 </Submenu>
 
             </Menu>
         </i-col>
+
     </div>
 </template>
 
@@ -24,7 +25,9 @@
         name: "side-menu",
         data(){
             return{
-                sideMenuList:[]
+                sideMenuList:[],
+                openItem:1,
+                openItems:['1_2']
             }
         },
         created() {
@@ -42,7 +45,27 @@
 </script>
 
 <style lang="less">
+    .ms-logo {
+        height: 78px;
+        line-height: 78px;
+        background: #2f3236;
+        color: #cdcccd;
+        font-style: italic;
+        text-align: center;
+        font-size: 16px;
+        font-weight: bold;
+        .icon-project{
+            background: url("../assets/img/prpject_icon.png") no-repeat;
+            width: 24px;
+            height: 20px;
+            display: inline-block;
+            position: relative;
+            top: 4px;
+            margin-right: 6px;
+        }
+    }
     .side-menu{
+        a{color: #ffffff}
         .side-scroll{
             height: 100%;
             overflow-y: auto;

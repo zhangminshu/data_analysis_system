@@ -63,7 +63,6 @@ export default {
       .ms-body{
         background: #ffffff;
         margin: 24px;
-        padding: 16px;
         border: 1px solid #cdd0dd;
         border-radius: 6px;
         min-height: 200px;

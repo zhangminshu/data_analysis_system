@@ -59,6 +59,16 @@
                     </ul>
                 </div>
 
+                <div class="remarks">
+                    <div class="remark-warp ms-clear">
+                        <div class="remark-icon ms-left">注</div>
+                        <div class="ms-left remark-content">
+                            <p class="list"><strong>ROC:</strong>凯撒实际投入＆总体产出比。累计总收入/实际消耗。</p>
+                            <p class="list"><strong>KOC:</strong>凯撒实际投入＆凯撒所得收入比。凯撒所得累计总收入/实际消耗。</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             <!--<router-view></router-view>-->
         </div>
@@ -99,14 +109,6 @@
     }
 </script>
 <style lang="less">
-    .ms-logo {
-        height: 78px;
-        line-height: 78px;
-        background: #2f3236;
-        color: #cdcccd;
-        text-align: center;
-        font-size: 18px;
-    }
     .ivu-col {
         transition: width .2s ease-in-out;
     }
@@ -114,6 +116,7 @@
     .moduleTop{
         position: relative;
         height: 36px;
+        margin: 16px;
         border-bottom: 2px solid #ebeef1;
         //padding-bottom: 15px;
     }
@@ -129,6 +132,26 @@
                 width: 20%;
                 height: 70px;
                 vertical-align: middle;
+            }
+        }
+        .remarks{
+            background: #f7fafb;
+            border-bottom-left-radius: 6px;
+            border-bottom-right-radius: 6px;
+            padding: 17px 47px 60px 47px;
+            .remark-icon{
+                background: url("../assets/img/mark.png") no-repeat;
+                width: 30px;
+                height: 29px;
+                text-align: center;
+                color: #ffffff;
+                font-size: 16px;
+                line-height: 29px;
+                padding-right: 1px;
+            }
+            .remark-content{
+                margin-left: 15px;
+                margin-top: 10px;
             }
         }
     }
