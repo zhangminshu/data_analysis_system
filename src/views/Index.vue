@@ -6,7 +6,7 @@
             <!--</keep-alive>-->
             <div class="moduleTop">
                 <div class="ms-clear">
-                    <div class="ms-left"><span class="ms-mark"></span>主要数据</div>
+                    <div class="ms-left moduleTitle"><span class="ms-mark"></span>主要数据</div>
                     <div class="ms-right ms-ml25"><span class="ms-mark-green"></span>值 < 0</div>
                     <div class="ms-right "><span class="ms-mark-red"></span>值 > 0</div>
                 </div>
@@ -65,6 +65,7 @@
                         <div class="ms-left remark-content">
                             <p class="list"><strong>ROC:</strong>凯撒实际投入＆总体产出比。累计总收入/实际消耗。</p>
                             <p class="list"><strong>KOC:</strong>凯撒实际投入＆凯撒所得收入比。凯撒所得累计总收入/实际消耗。</p>
+                            <p class="hints"><strong>基础数据每日从经分系统获取，约7:00完成数据计算展示</strong></p>
                         </div>
                     </div>
                 </div>
@@ -113,13 +114,7 @@
         transition: width .2s ease-in-out;
     }
 
-    .moduleTop{
-        position: relative;
-        height: 36px;
-        margin: 16px;
-        border-bottom: 2px solid #ebeef1;
-        //padding-bottom: 15px;
-    }
+
     .moduleContent{
         .moduleTable{
             padding: 50px;
@@ -152,6 +147,9 @@
             .remark-content{
                 margin-left: 15px;
                 margin-top: 10px;
+            }
+            .hints{
+                margin-top: 15px;
             }
         }
     }

@@ -60,14 +60,15 @@ export default {
       z-index: 1;
       transition: left .3s;
       background: #ebeef1;
-      .ms-body{
-        background: #ffffff;
-        margin: 24px;
-        border: 1px solid #cdd0dd;
-        border-radius: 6px;
-        min-height: 200px;
-      }
     }
+      .ms-body{
+          background: #ffffff;
+          margin: 24px;
+          border: 1px solid #cdd0dd;
+          border-radius: 6px;
+          min-height: 200px;
+      }
+
   }
 
 </style>
