@@ -13,36 +13,36 @@
             </div>
             <div class="moduleContent">
                 <div class="moduleTable">
-                    <ul>
+                    <ul class="">
                         <li>
-                            <p>累计花费</p>
-                            <p>￥12312</p>
+                            <p class="item-name">累计花费</p>
+                            <p class="item-num"><span class="unit">￥</span>{{totalData.totalCost}}</p>
                         </li>
                         <li>
-                            <p>累计收入</p>
-                            <p>￥342</p>
+                            <p class="item-name">累计收入</p>
+                            <p class="item-num" ><span class="unit">￥</span>{{totalData.totalIncome}}</p>
                         </li>
                         <li>
-                            <p>累计XX收入</p>
-                            <p>￥123113</p>
+                            <p class="item-name">累计凯撒收入</p>
+                            <p class="item-num"><span class="unit">￥</span>{{totalData.totalKSIncome}}</p>
                         </li>
                         <li>
-                            <p>缺口</p>
-                            <p>￥23444</p>
+                            <p class="item-name">缺口</p>
+                            <p class="item-num red" :class="{'green':(totalData.gap < 0)}"><span class="unit">￥</span>{{totalData.gap}}</p>
                         </li>
                         <li>
-                            <p>研发分成后缺口</p>
-                            <p>￥12313</p>
+                            <p class="item-name">研发分成后缺口</p>
+                            <p class="item-num red" :class="{'green':(totalData.rentGap <0 )}"><span class="unit">￥</span>{{totalData.rentGap}}</p>
                         </li>
                     </ul>
                     <ul>
                         <li>
-                            <p>累计花费</p>
-                            <p>￥12312</p>
+                            <p class="item-name">ROC</p>
+                            <p class="item-num">{{totalData.roc}}<span class="unit">%</span></p>
                         </li>
                         <li>
-                            <p>累计收入</p>
-                            <p>￥342</p>
+                            <p class="item-name">KOC</p>
+                            <p class="item-num">{{totalData.koc}}<span class="unit">%</span></p>
                         </li>
                         <li>
                             <p></p>
@@ -79,7 +79,15 @@
     export default {
         data() {
             return {
-
+                totalData:{
+                    'totalCost':13546,
+                    'totalIncome':5464,
+                    'totalKSIncome':454525,
+                    'gap':54633,
+                    'rentGap':-0.6464,
+                    'roc':33,
+                    'koc':26
+                }
             }
         },
         mounted() {
@@ -91,22 +99,8 @@
         destroyed() {
 
         },
-        computed: {
-            iconSize() {
-                return this.spanLeft === 5 ? 14 : 24;
-            }
-        },
-        methods: {
-            toggleClick() {
-                if (this.spanLeft === 5) {
-                    this.spanLeft = 2;
-                    this.spanRight = 22;
-                } else {
-                    this.spanLeft = 5;
-                    this.spanRight = 19;
-                }
-            }
-        }
+        computed: {},
+        methods: {}
     }
 </script>
 <style lang="less">
@@ -114,19 +108,44 @@
         transition: width .2s ease-in-out;
     }
 
-
+    .red{
+        color: #fd6a47;
+    }
+    .green{
+        color: #6dd041;
+    }
     .moduleContent{
         .moduleTable{
-            padding: 50px;
+            padding: 50px 66px;
+            .unit{
+                color: #dce0e0;
+            }
+            .item-name{
+                font-weight: bold;
+                color: #acb6c2;
+            }
+            .item-num{
+                font-size: 22px;
+            }
             ul{
                 display:table;
                 width: 100%;
+                border-bottom: 1px solid #ebeef1;
+                &:last-child{
+                    border: none;
+                }
             }
             ul>li{
                 display: table-cell;
                 width: 20%;
                 height: 70px;
+                padding: 30px;
+                padding-left: 50px;
                 vertical-align: middle;
+                border-right: 1px solid #ebeef1;
+                &:last-child{
+                    border: none;
+                }
             }
         }
         .remarks{

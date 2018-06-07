@@ -24,6 +24,7 @@ export default {
 
 <style lang="less">
   @import './assets/css/reset.css';
+  @import "./assets/css/flex";
   @import "./assets/css/base";
   #app{
     height: 100%;

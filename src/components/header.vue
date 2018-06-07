@@ -4,7 +4,7 @@
             <div class="selectGame">
                 <i-form>
                     <Form-item>
-                        <i-select placeholder="请选择所在地" class="">
+                        <i-select placeholder="请选择所在地" class="" :model.sync="selectedGame">
                             <i-option value="beijing">北京市</i-option>
                             <i-option value="shanghai">上海市</i-option>
                             <i-option value="shenzhen">深圳市</i-option>
@@ -51,6 +51,7 @@
     export default {
         data() {
             return {
+                selectedGame:'',
                 showDialog:false,
                 userName: "richard",
             }
@@ -58,6 +59,7 @@
         methods: {
             ok () {
                 this.$Message.info('点击了确定');
+                console.log(this.selectedGame)
             },
             cancel () {
                 this.showDialog = false;

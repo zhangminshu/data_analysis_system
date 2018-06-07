@@ -20,7 +20,7 @@ export default new Router({
         {
             path: '/',
             name: 'Index',
-            component: Index
+            component: analysisDay
         }, {
             path: '/analysis-total',
             name: 'analysis-total',
