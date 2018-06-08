@@ -39,16 +39,16 @@
                 <div class="chartHeader flex">
                     <div class="part-left flex-item ms-tl ms-iBlock">
                         <div class="mark-line ms-iBlock ms-tc">
-                            <p>基准线</p>
+                            <p class="line-name">基准线</p>
                             <p class="line-color"></p>
                             <p class="mark-num ">5%</p>
                         </div>
                         <div class="more-than-mark ms-iBlock">
-                            <p>基准线上</p>
+                            <p class="line-up-down">基准线上</p>
                             <p><strong>156</strong>日</p>
                         </div>
                         <div class="less-than-mark ms-iBlock">
-                            <p>基准线下</p>
+                            <p class="line-up-down">基准线下</p>
                             <p><strong>156</strong>日</p>
                         </div>
                     </div>
@@ -77,9 +77,10 @@
                     </div>
                 </div>
                 <i-table :columns="columns8" :data="data7" size="small" ref="tableCsv"></i-table>
-                <div style="margin: 10px;overflow: hidden">
+
+                <div style="margin: 30px 10px" class="ms-clear">
                     <div style="float: right;">
-                        <Page :total="100" :current="1" @on-change="changePage"></Page>
+                        <Page class="page" :total="100" size="small" show-elevator show-sizer></Page>
                     </div>
                 </div>
             </div>
@@ -529,7 +530,7 @@
                             itemStyle: {
                                 normal: {
                                     lineStyle: {type: 'dashed', color: 'red'},
-                                    label: {show: true, position: 'right'}
+                                    label: {show: true, position: 'right',name:'sdfsdf'}
                                 }
                             },
                             data: [{yAxis: 500}]//设置基准线，可以多条
@@ -712,27 +713,42 @@
         margin: 30px 50px;
         .chartHeader{
             font-size: 12px;
-            .mark-line{
-                border-right: 1px solid #d9dfe5;
-                padding-right: 39px;
+            .part-left{
+                .line-name{
+                    position: relative;
+                    top: -8px;
+                }
                 .line-color{
-                    height: 2px;
-                    width: 90%;
-                    margin: 0 auto;
-                    background: #ff8686;
+                    position: relative;
+                    top: -3px;
                 }
-                .mark-num{
-                    color: #ff8686;
+                .line-up-down{
+                    position: relative;
+                    top: 6px;
+                }
+                .mark-line{
+                    border-right: 1px solid #d9dfe5;
+                    padding-right: 39px;
+                    .line-color{
+                        height: 2px;
+                        width: 90%;
+                        margin: 0 auto;
+                        background: #ff8686;
+                    }
+                    .mark-num{
+                        color: #ff8686;
+                    }
+                }
+                .more-than-mark{
+                    margin-right: 36px;
+                    margin-left: 22px;
+                    strong{font-size: 24px;font-weight: normal}
+                }
+                .less-than-mark {
+                    strong{font-size: 24px;font-weight: normal}
                 }
             }
-            .more-than-mark{
-                margin-right: 36px;
-                margin-left: 22px;
-                strong{font-size: 24px;font-weight: normal}
-            }
-            .less-than-mark {
-                strong{font-size: 24px;}
-            }
+
             .part-center{
                 .tab{
                     cursor: pointer;
@@ -760,7 +776,7 @@
         }
     }
     .myTable{
-        margin: 30px 50px;
+        margin: 30px 50px 100px 50px;
         .tableHeader{
             height: 32px;
             margin-bottom: 14px;
@@ -800,6 +816,9 @@
                     }
                 }
             }
+        }
+        .page{
+            position: relative;
         }
     }
 

@@ -1,7 +1,7 @@
 <template>
     <div class="side-menu" >
         <div class="ms-logo"><i class="icon-project"></i>投放数据分析系统</div>
-        <i-col class="side-scroll" >
+        <i-col class="side-scroll" :style="{height: scrollHeight + 'px' }">
             <Menu active-name="12" :open-names="['1']"    class="ivu-menu-default" width="auto">
                 <Submenu :name="item.id" :key="index" v-for="(item,index) in sideMenuList">
                     <template slot="title">
@@ -25,12 +25,15 @@
         name: "side-menu",
         data(){
             return{
+                scrollHeight:'',
                 sideMenuList:[],
                 openItem:1,
                 openItems:['1_2']
             }
         },
         created() {
+            let sideHeight = document.body.clientHeight;
+            this.scrollHeight = sideHeight - 78;
             api.getSideMenu().then((response)=>{
                 let res = response.data,self = this;
                 if(res.code === 10000){
