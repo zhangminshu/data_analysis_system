@@ -86,13 +86,6 @@
 
 <style lang="less">
     .filterWarp{
-        background: #f7fafb;
-        .filter{
-            padding: 22px 38px 17px 38px;
-            .start_date{
-                margin-right: 10px;
-            }
-        }
         .filterBtn{
             .btn{
                 display: inline-block;

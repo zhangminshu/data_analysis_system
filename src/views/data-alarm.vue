@@ -135,11 +135,11 @@
                 td{
                     border: 1px solid #cdd0dd;
                     padding: 0 0 0 10px;
-                    width: 146px;
+                    width: 140px;
                     height: 32px;
                     input{
                         height: 32px;
-                        width: 146px;
+                        width: 140px;
                         border: none;
                         margin-left: -10px;
                         padding-left: 10px;
