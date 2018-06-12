@@ -4,61 +4,75 @@
   "data":[{
     "name":"数据分析",
     "moduleName":"data-analysis",
+    "itemName":"m1",
     "id":1,
     "hasChild":true,
     "list":[{
       "name":"总体概览",
       "listName":"analysis-total",
+      "sideName":"m1-1",
       "id":11
     },{
+      "sideName":"m1-2",
       "name":"日切片数据",
       "listName":"analysis-day",
       "id":12
     },{
+      "sideName":"m1-3",
       "name":"周对比",
       "listName":"analysis-week",
       "id":13
     },{
+      "sideName":"m1-4",
       "name":"月对比",
       "listName":"analysis-month",
       "id":14
     }]
   },{
+    "itemName":"m2",
     "name":"渠道排行",
     "moduleName":"channel-ranking",
     "id":2,
     "hasChild":true,
     "list":[{
+      "sideName":"m2-1",
       "name":"日排行",
       "listName":"ranking-day",
       "id":21
     },{
+      "sideName":"m2-2",
       "name":"周排行",
       "listName":"ranking-week",
       "id":22
     },{
+      "sideName":"m2-3",
       "name":"月排行",
       "listName":"ranking-month",
       "id":23
     }]
   },{
+    "itemName":"m3",
     "name":"数据设置",
     "id":3,
     "moduleName":"data-setting",
     "hasChild":true,
     "list":[{
+      "sideName":"m3-1",
       "name":"分成返点",
       "listName":"turnover-rent",
       "id":31
     },{
+      "sideName":"m3-2",
       "name":"数据修正",
       "listName":"data-correction",
       "id":32
     },{
+      "sideName":"m3-3",
       "name":"修正记录",
       "listName":"correction-record",
       "id":33
     },{
+      "sideName":"m3-4",
       "name":"数据预警",
       "listName":"data-alarm",
       "id":34

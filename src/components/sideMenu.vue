@@ -2,14 +2,14 @@
     <div class="side-menu" >
         <div class="ms-logo"><i class="icon-project"></i>投放数据分析系统</div>
         <i-col class="side-scroll" :style="{height: scrollHeight + 'px' }">
-            <Menu active-name="12" :open-names="['1']"    class="ivu-menu-default" width="auto">
-                <Submenu :name="item.id" :key="index" v-for="(item,index) in sideMenuList">
+            <Menu ref="sideMenu" :active-name="activeName" :open-names="[openName]"    class="ivu-menu-default" width="auto" @on-select="changeSide">
+                <Submenu :name="'m'+(index+1)" :key="index" v-for="(item,index) in sideMenuList">
                     <template slot="title">
                         <Icon  class="sideIcon" :class="'ivu-icon-'+index"></Icon>
                         {{item.name}}
                     </template>
                         <router-link v-for="(subItem,subIndex) in item.list" :key="subIndex" :to="{name: subItem.listName}">
-                            <Menu-item   :name="subItem.id" :key="subItem.id">{{subItem.name}}</Menu-item>
+                            <Menu-item   :name="'m'+(index+1)+(subIndex+1)" :key="subItem.id">{{subItem.name}}</Menu-item>
                         </router-link>
                 </Submenu>
 
@@ -21,15 +21,20 @@
 
 <script>
     import api from '@/api'
+    import {mapState} from 'vuex'
     export default {
         name: "side-menu",
         data(){
             return{
                 scrollHeight:'',
-                sideMenuList:[],
-                openItem:1,
-                openItems:['1_2']
+                sideMenuList:[]
             }
+        },
+        computed:{
+            ...mapState([
+                'openName',
+                'activeName'
+            ])
         },
         created() {
             let sideHeight = document.body.clientHeight;
@@ -42,7 +47,17 @@
             })
         },
         methods:{
-
+            changeSide(activeItem){
+                this.$store.commit('updateActiveNames',activeItem)
+            }
+        },
+        updated () {
+            this.$nextTick(() => {
+                if (this.$refs.sideMenu) {
+                    this.$refs.sideMenu.updateOpened();
+                    this.$refs.sideMenu.updateActiveName();
+                }
+            });
         }
     }
 </script>

@@ -60,6 +60,9 @@
         components:{
             explain
         },
+        created(){
+            this.$store.commit('updateActiveNames','m13')
+        },
         methods:{
             ok () {
                 this.$Message.info('点击了确定');

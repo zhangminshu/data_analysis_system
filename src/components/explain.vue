@@ -1,11 +1,12 @@
 <template>
-    <div class="ms-explain">
-        <div class="moduleTop">
+    <div class="ms-explain" id="explain" >
+        <div class="explainTop">
             <div class="ms-clear">
                 <div class="ms-left moduleTitle"><span class="ms-mark"></span>指标说明</div>
+                <div class="ms-right"><span class="close" @click="close()">{{text}}</span></div>
             </div>
         </div>
-        <div class="moduleContent">
+        <div class="explainContent" v-if="showExplain">
             <div class="explain-item ms-clear" v-for="(item,index) in explainContents.analysisDay">
                 <div class="ms-left explain-index">{{index+1}}</div>
                 <div class="ms-left explain-warp">
@@ -17,9 +18,11 @@
 </template>
 
 <script>
+    import {mapState} from 'vuex';
     export default {
         data(){
             return{
+                text:'隐藏',
                 explainContents:{
                     "analysisDay":[{
                         "itemContent":[
@@ -51,6 +54,15 @@
                     }]
                 }
             }
+        },
+        computed:{
+            ...mapState(['showExplain'])
+        },
+        methods:{
+            close(){
+                this.text = this.showExplain ? '隐藏':'显示';
+                this.$store.commit('updateExplainStatus',!this.showExplain)
+            }
         }
     }
 </script>
@@ -62,11 +74,21 @@
         margin: 24px;
         border: 1px solid #cdd0dd;
         border-radius: 6px;
-        min-height: 120px;
+        /*min-height: 70px;*/
         margin-bottom: -8px;
+        .close{
+            /*background: url("../assets/img/close.png") no-repeat;*/
+            /*width: 14px;*/
+            /*background: #6dbf48;*/
+            /*height: 14px;*/
+            /*width: 80px;*/
+            display: inline-block;
+            cursor: pointer;
+            margin-right: 6px;
+        }
         .explain-item{
             border-bottom: 1px dashed #E3E5ED;
-            margin: 12px 30px 12px 30px;
+            margin: 12px 14px 12px 14px;
             padding-bottom: 10px;
             .explain-index{
                 position: relative;
@@ -111,5 +133,15 @@
             /*border-width: 0px 5px 5px!important;*/
             /*border-bottom-color: #9b9da8!important;*/
         /*}*/
+    }
+    .explainTop{
+        position: relative;
+        height: 36px;
+        margin: 16px 16px 0 16px;
+        /*border-bottom: 2px solid #ebeef1;*/
+    }
+    .explainContent{
+        border-top: 2px solid #ebeef1;
+        margin: 6px 16px;
     }
 </style>

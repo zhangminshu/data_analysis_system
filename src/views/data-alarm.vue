@@ -7,6 +7,7 @@
             <div class="moduleTop">
                 <div class="ms-clear">
                     <div class="ms-left moduleTitle"><span class="ms-mark"></span>ROI预警设置</div>
+                    <div class="ms-right"><span class="btn save">保存</span></div>
                 </div>
             </div>
             <div class="moduleContent">
@@ -79,6 +80,10 @@
 <style lang="less">
     .red{
         color: #fd6a47;
+    }
+    .save{
+        top: -8px;
+        background: #53a3ff;
     }
     .moduleContent{
         .tableSetting{

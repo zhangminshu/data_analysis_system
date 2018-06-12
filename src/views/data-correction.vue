@@ -28,6 +28,10 @@
                 start_date:''
             }
         },
+        created(){
+            this.$store.commit('updateActiveItem','m3')
+            this.$store.commit('updateActiveNames','m32')
+        },
         methods:{
             handleChangeStart(){
 

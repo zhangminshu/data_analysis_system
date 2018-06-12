@@ -452,6 +452,9 @@
                 }
             }
         },
+        created(){
+            this.$store.commit('updateActiveNames','m12')
+        },
         mounted() {
             const option = {
                 title:{
