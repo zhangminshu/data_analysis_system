@@ -30,6 +30,7 @@
             </div>
         </div>
         <explain></explain>
+        <datePick></datePick>
         <div class="ms-body">
 
         </div>
@@ -48,6 +49,7 @@
 
 <script>
     import explain from '../components/explain'
+    import datePick from '../components/datePick'
     export default {
         data(){
             return{
@@ -58,7 +60,8 @@
             }
         },
         components:{
-            explain
+            explain,
+            datePick
         },
         created(){
             this.$store.commit('updateActiveNames','m13')

@@ -14,8 +14,13 @@
             <div class="moduleTop">
                 <div class="ms-clear">
                     <div class="ms-left desc"><i class="icon-warn"></i>部分数据需要重新计算，耗时3分钟，请谨慎修改</div>
-                    <div class="ms-right"><span class="editTable btn">编辑表格</span></div>
+                    <div class="ms-right"><span @click="changeTable()" class="btn" :class="(isEdit ?'editTable' :'submitTable')">{{text}}</span></div>
                 </div>
+            </div>
+            <div class="tableWarp">
+                <table>
+
+                </table>
             </div>
         </div>
     </div>
@@ -25,7 +30,9 @@
     export default {
         data(){
             return{
-                start_date:''
+                isEdit:true,
+                start_date:'2018-06-15',
+                text:'编辑表格'
             }
         },
         created(){
@@ -33,6 +40,14 @@
             this.$store.commit('updateActiveNames','m32')
         },
         methods:{
+            changeTable(){
+                this.isEdit = !this.isEdit;
+                if(this.isEdit){
+                    this.text = '编辑表格'
+                }else {
+                    this.text ='提交'
+                }
+            },
             handleChangeStart(){
 
             }
@@ -43,6 +58,11 @@
 <style lang="less">
     .editTable{
         background: #53a3ff;
+        position: relative;
+        top: -8px;
+    }
+    .submitTable{
+        background: #fb6b4f;
         position: relative;
         top: -8px;
     }

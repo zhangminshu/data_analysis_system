@@ -7,7 +7,7 @@
             <div class="moduleTop">
                 <div class="ms-clear">
                     <div class="ms-left moduleTitle"><span class="ms-mark"></span>ROI预警设置</div>
-                    <div class="ms-right"><span class="btn save">保存</span></div>
+                    <div class="ms-right"><span class="btn save" @click="saveSetting()">保存</span></div>
                 </div>
             </div>
             <div class="moduleContent">
@@ -23,18 +23,18 @@
                                 </tr>
                                 <tr>
                                     <td class="tableBg">安全值（%）</td>
-                                    <td><input type="text"></td>
-                                    <td><input type="text"></td>
-                                    <td><input type="text"></td>
-                                    <td><input type="text"></td>
-                                    <td><input type="text" placeholder="（选填）"></td>
-                                    <td><input type="text" placeholder="（选填）"></td>
+                                    <td><input type="text" v-model="roi1"></td>
+                                    <td><input type="text" v-model="roi7"></td>
+                                    <td><input type="text" v-model="roi14"></td>
+                                    <td><input type="text" v-model="roi30"></td>
+                                    <td><input type="text" v-model="roi60" placeholder="（选填）"></td>
+                                    <td><input type="text" v-model="roi90" placeholder="（选填）"></td>
                                 </tr>
                             </table>
                         </div>
                     </div>
-                    <div class="item"><div>标紫<span class="purple"></span>日ROI环比涨幅小于： <input class="setVal" type="text"> %，该数据格填充为紫色。</div></div>
-                    <div class="item"><div>标红<span class="pink"></span>日ROI大于：<input class="setVal" type="text"> %，该数据格填充为红色。</div></div>
+                    <div class="item"><div>标紫<span class="purple"></span>日ROI环比涨幅小于： <input class="setVal" type="text" v-model="roiMore"> %，该数据格填充为紫色。</div></div>
+                    <div class="item"><div>标红<span class="pink"></span>日ROI大于：<input class="setVal" type="text" v-model="roiLess"> %，该数据格填充为红色。</div></div>
                 </div>
 
                 <div class="remarks">
@@ -61,7 +61,14 @@
     export default {
         data() {
             return {
-
+                roi1:'',
+                roi7:'',
+                roi14:'',
+                roi30:'',
+                roi60:'',
+                roi90:'',
+                roiMore:'',
+                roiLess:'',
             }
         },
         mounted() {
@@ -74,7 +81,21 @@
 
         },
         computed: {},
-        methods: {}
+        methods: {
+            saveSetting(){
+                let jsonData ={
+                    roi1:this.roi1,
+                    roi7:this.roi7,
+                    roi14:this.roi14,
+                    roi30:this.roi30,
+                    roi60:this.roi60,
+                    roi90:this.roi90,
+                    roiMore:this.roiMore,
+                    roiLess:this.roiLess,
+                }
+                console.log(jsonData)
+            }
+        }
     }
 </script>
 <style lang="less">

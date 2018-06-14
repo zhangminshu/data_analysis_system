@@ -33,6 +33,7 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
+    background: #ebeef1;
     .side-menu {
       width: 256px;
       height: 100%;
@@ -45,6 +46,9 @@ export default {
     }
     .header-warp{
       padding-left: 256px;
+      position: fixed;
+      width: 100%;
+      z-index: 999999;
       .main-header{
         background: #383c41;
         height: 78px;
@@ -52,9 +56,9 @@ export default {
       }
     }
     .main-content{
-      position: absolute;
+      position: relative;
       top: 78px;
-      left: 256px;
+      margin-left: 256px;
       right: 0;
       bottom: 0;
       overflow: auto;
