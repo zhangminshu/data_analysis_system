@@ -40,7 +40,7 @@
             let sideHeight = document.body.clientHeight;
             this.scrollHeight = sideHeight - 78;
             api.getSideMenu().then((response)=>{
-                let res = response.data,self = this;
+                let res = response,self = this;
                 if(res.code === 10000){
                     self.sideMenuList = res.data;
                 }

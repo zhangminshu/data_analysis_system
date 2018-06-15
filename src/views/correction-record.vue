@@ -3,6 +3,7 @@
     <div class="main-content">
         <div class="ms-body">
             <div class="recordTable">
+                <!--<Table border :columns="columns7" :data="data6"></Table>-->
                 <i-table :content="self" :columns="columns7" :data="data6"></i-table>
                 <Page class="page" :total="40" size="small" show-elevator show-sizer></Page>
             </div>
@@ -10,97 +11,99 @@
         </div>
     </div>
 </template>
-
 <script>
     export default {
-        data(){
-            return{
-                self: this,
-                res:[{
-                    userName:'richard',
-                    moduleName:'游戏分成',
-                    subModuleName:'渠道ID-渠道名称',
-                    previousState:'修改前的内容',
-                    currState:'修改后的状态',
-
-                },{
-                    userName:'richard',
-                    moduleName:'游戏分成',
-                    subModuleName:'渠道ID-渠道名称',
-                    previousState:'修改前的内容',
-                    currState:'修改后的状态'
-                },{
-                    userName:'richard',
-                    moduleName:'游戏分成',
-                    subModuleName:'渠道ID-渠道名称',
-                    previousState:'修改前的内容',
-                    currState:'修改后的状态'
-                }],
+        data () {
+            return {
+                self:this,
                 columns7: [
                     {
-                        title: '姓名',
+                        title: 'Name',
                         key: 'name',
-                        render (row, column, index) {
-                            return `<Icon type="person"></Icon> <strong>${row.name}</strong>`;
+                        render: (h, params) => {
+                            return h('div', [
+                                h('strong', params.row.name),
+                                h('span',params.row.userName)
+                            ]);
                         }
                     },
                     {
-                        title: '年龄',
+                        title: 'Age',
                         key: 'age'
                     },
                     {
-                        title: '地址',
+                        title: 'Address',
                         key: 'address'
                     },
                     {
-                        title: '操作',
+                        title: 'Action',
                         key: 'action',
                         width: 150,
                         align: 'center',
-                        render (row, column, index) {
-                            return `<i-button type="primary" size="small" @click="show(${index})">查看</i-button> <i-button type="error" size="small" @click="remove(${index})">删除</i-button>`;
+                        render: (h, params) => {
+                            return h('div', [
+                                h('Button', {
+                                    props: {
+                                        type: 'primary',
+                                        size: 'small'
+                                    },
+                                    style: {
+                                        marginRight: '5px'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.show(params.index)
+                                        }
+                                    }
+                                }, 'View'),
+                                h('Button', {
+                                    props: {
+                                        type: 'error',
+                                        size: 'small'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.remove(params.index)
+                                        }
+                                    }
+                                }, 'Delete')
+                            ]);
                         }
                     }
                 ],
                 data6: [
                     {
-                        name: '王小明',
+                        name: 'John Brown',
+                        userName:'aaa',
                         age: 18,
-                        address: '北京市朝阳区芍药居'
+                        address: 'New York No. 1 Lake Park'
                     },
                     {
-                        name: '张小刚',
-                        age: 25,
-                        address: '北京市海淀区西二旗'
+                        name: 'Jim Green',
+                        userName:'aaa1',
+                        age: 24,
+                        address: 'London No. 1 Lake Park'
                     },
                     {
-                        name: '李小红',
+                        name: 'Joe Black',
+                        userName:'aaa2',
                         age: 30,
-                        address: '上海市浦东新区世纪大道'
+                        address: 'Sydney No. 1 Lake Park'
                     },
                     {
-                        name: '周小伟',
+                        name: 'Jon Snow',
+                        userName:'aaa3',
                         age: 26,
-                        address: '深圳市南山区深南大道'
+                        address: 'Ottawa No. 2 Lake Park'
                     }
                 ]
             }
         },
-        mounted() {
-
-        },
-        created() {
-
-        },
-        destroyed() {
-
-        },
-        computed: {},
         methods: {
             show (index) {
                 this.$Modal.info({
-                    title: '用户信息',
-                    content: `姓名：${this.data6[index].name}<br>年龄：${this.data6[index].age}<br>地址：${this.data6[index].address}`
+                    title: 'User Info',
+                    content: `Name：${this.data6[index].name}<br>Age：${this.data6[index].age}<br>Address：${this.data6[index].address}`
                 })
             },
             remove (index) {
@@ -109,7 +112,6 @@
         }
     }
 </script>
-
 <style lang="less">
     .recordTable{
         margin: 17px;

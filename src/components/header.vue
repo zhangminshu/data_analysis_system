@@ -39,13 +39,12 @@
         <Modal v-model="showDialog" width="688px" :visible.sync="showDialog" title="游戏添加" @on-ok="ok" @on-cancel="cancel">
             <div class="selectGameDialog">
                 <Transfer
-                        :data="data3"
-                        :target-keys="targetKeys3"
+                        :data="appList"
+                        :target-keys="myAppList"
                         :list-style="listStyle"
                         :titles="tableTitles"
-                        :render-format="render3"
                         filterable
-                        @on-change="handleChange3" >
+                        @on-change="handleChange" >
 
                 </Transfer>
             </div>
@@ -55,6 +54,7 @@
 </template>
 
 <script>
+    const successCode = 10000;
     export default {
         data() {
             return {
@@ -62,14 +62,29 @@
                 showDialog:false,
                 userName: "richard",
                 tableTitles :['SDK游戏列表','投放系统游戏列表'],
-                data3: this.getMockData(),
-                targetKeys3: this.getTargetKeys(),
+                gameList:[],
+                appList:[],
+                myAppList:[],
                 listStyle: {
                     width: '261px',
                     height: '424px',
                     'text-align':'left'
                 }
             }
+        },
+        created(){
+            this.API.getAppList().then((res)=>{
+                if(res.code === successCode){
+                    this.appList = res.data.app_list.map((item)=>{
+                        item.key = item.app_id;
+                        item.label = item.app_name;
+                        return item
+                    });
+                    this.myAppList = res.data.my_app_list.map((item)=>{
+                        return item.app_id;
+                    });
+                }
+            })
         },
         methods: {
             ok () {
@@ -79,33 +94,9 @@
             cancel () {
                 this.showDialog = false;
             },
-            getMockData () {
-                let mockData = [];
-                for (let i = 1; i <= 20; i++) {
-                    mockData.push({
-                        key: i.toString(),
-                        label: '内容' + i,
-                        description: '内容' + i + '的描述信息',
-                        disabled: Math.random() * 3 < 1
-                    });
-                }
-                return mockData;
-            },
-            getTargetKeys () {
-                return this.getMockData()
-                    .filter(() => Math.random() * 2 > 1)
-                    .map(item => item.key);
-            },
-            handleChange3 (newTargetKeys) {
-                this.targetKeys3 = newTargetKeys;
+            handleChange (newTargetKeys) {
+                this.myAppList = newTargetKeys;
                 console.log(newTargetKeys)
-            },
-            render3 (item) {
-                return item.label + ' - ' + item.description;
-            },
-            reloadMockData () {
-                this.data3 = this.getMockData();
-                this.targetKeys3 = this.getTargetKeys();
             }
         }
     }

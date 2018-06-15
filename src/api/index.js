@@ -36,7 +36,8 @@ Axios.interceptors.request.use(function (config) {
 Axios.interceptors.response.use(function (response) {
     store.commit('updateLoadingStatus', {isLoading: false})
     // 对响应数据做点什么
-    return response;
+    // console.log(response.data)
+    return response.data;
 }, function (error) {
     // 对响应错误做点什么
     return Promise.reject(error);
@@ -51,8 +52,16 @@ const baseUrl = '10.10.40.33:8428'
 
 export default {
     //
-    // getSideMenu: data => Axios.get('/jxwy/news/get-news-type'),
     getSideMenu: data => Axios.get('/static/sideMenu.json'),
+    // getTotalData:data =>Axios.get('/advert/stat/show-total-data'),
+    // getAppList:data =>Axios.get('/advert/common/app-list'),//获取游戏列表
+    // getChannelList:data =>Axios.get('/advert/common/channel-list'),//获取游戏广告渠道列表
+
+//mock接口
+    getAppList:data =>Axios.get('/static/appList.json'),
+    getChannelList:data =>Axios.get('/static/channelList.json'),
+
+
 
 
 }

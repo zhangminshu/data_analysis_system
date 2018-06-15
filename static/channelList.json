@@ -1,0 +1,29 @@
+{
+  "code": 10000,
+  "data": {
+    "list": [
+      {
+        "ad_channel_id": "1000001",
+        "name": "channel_1"
+      },
+      {
+        "app_id": "1000002",
+        "name": "channel_2"
+      },
+      {
+        "app_id": "1000003",
+        "name": "channel_3"
+      },
+      {
+        "app_id": "1000004",
+        "name": "channel_4"
+      },
+      {
+        "app_id": "1000005",
+        "name": "channel_5"
+      }
+    ]
+  },
+  "msg": "获取成功",
+  "server_time":"2018-01-01 12:00:00"
+}

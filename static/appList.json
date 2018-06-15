@@ -1,0 +1,25 @@
+{
+  "code": 10000,
+  "data": {
+    "app_list": [
+      {
+        "app_id": "1000001",
+        "app_name": "app_1"
+      },
+      {
+        "app_id": "1000002",
+        "app_name": "app_2"
+      }
+    ],
+    "my_app_list": [
+      {
+        "app_id": "1000001",
+        "app_name": "app_1",
+        "pos":1
+      }
+    ]
+
+  },
+  "msg": "获取成功",
+  "server_time":"2018-01-01 12:00:00"
+}

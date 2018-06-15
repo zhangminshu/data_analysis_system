@@ -16,23 +16,23 @@
                     <ul class="">
                         <li>
                             <p class="item-name">累计花费</p>
-                            <p class="item-num"><span class="unit">￥</span>{{totalData.totalCost}}</p>
+                            <p class="item-num"><span class="unit">￥</span>{{totalData.real_cost}}</p>
                         </li>
                         <li>
                             <p class="item-name">累计收入</p>
-                            <p class="item-num" ><span class="unit">￥</span>{{totalData.totalIncome}}</p>
+                            <p class="item-num" ><span class="unit">￥</span>{{totalData.income}}</p>
                         </li>
                         <li>
                             <p class="item-name">累计凯撒收入</p>
-                            <p class="item-num"><span class="unit">￥</span>{{totalData.totalKSIncome}}</p>
+                            <p class="item-num"><span class="unit">￥</span>{{totalData.kaiser_income}}</p>
                         </li>
                         <li>
                             <p class="item-name">缺口</p>
-                            <p class="item-num red" :class="{'green':(totalData.gap < 0)}"><span class="unit">￥</span>{{totalData.gap}}</p>
+                            <p class="item-num red" :class="{'green':(totalData.finance_gap < 0)}"><span class="unit">￥</span>{{totalData.finance_gap}}</p>
                         </li>
                         <li>
                             <p class="item-name">研发分成后缺口</p>
-                            <p class="item-num red" :class="{'green':(totalData.rentGap <0 )}"><span class="unit">￥</span>{{totalData.rentGap}}</p>
+                            <p class="item-num red" :class="{'green':(totalData.tech_finance_gap <0 )}"><span class="unit">￥</span>{{totalData.tech_finance_gap}}</p>
                         </li>
                     </ul>
                     <ul>
@@ -80,11 +80,11 @@
         data() {
             return {
                 totalData:{
-                    'totalCost':13546,
-                    'totalIncome':5464,
-                    'totalKSIncome':454525,
-                    'gap':54633,
-                    'rentGap':-0.6464,
+                    'real_cost':13546,
+                    'income':5464,
+                    'kaiser_income':454525,
+                    'finance_gap':54633,
+                    'tech_finance_gap':-0.6464,
                     'roc':33,
                     'koc':26
                 }

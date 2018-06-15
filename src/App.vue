@@ -48,7 +48,7 @@ export default {
       padding-left: 256px;
       position: fixed;
       width: 100%;
-      z-index: 999999;
+      z-index: 2;
       .main-header{
         background: #383c41;
         height: 78px;

@@ -7,10 +7,12 @@ import router from './router'
 import iView from 'iview';
 import store from './store';
 import echarts from 'echarts'
+import API from './api/index.js';
 import 'iview/dist/styles/iview.css';    // 使用 CSS
 Vue.use(iView);
 sync(store, router)
 Vue.prototype.$echarts = echarts;
+Vue.prototype.API = API;
 
 Vue.config.productionTip = false
 
